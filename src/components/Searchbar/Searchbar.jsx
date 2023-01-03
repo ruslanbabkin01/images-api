@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-import {
-  Header,
-  SearchForm,
-  BtnSubmit,
-  InputForm,
-  ButtonIcon,
-} from './Searchbar.styled';
+import { FaSearch } from 'react-icons/fa';
+// import {
+//   Header,
+//   SearchForm,
+//   BtnSubmit,
+//   InputForm,
+//   ButtonIcon,
+// } from './Searchbar.styled';
 
 export const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -35,13 +35,13 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <Header>
-      <SearchForm onSubmit={handleSubmit}>
-        <BtnSubmit type="submit">
-          <ButtonIcon />
-        </BtnSubmit>
+    <header classNames="">
+      <form onSubmit={handleSubmit}>
+        <button type="submit">
+          <FaSearch />
+        </button>
 
-        <InputForm
+        <input
           type="text"
           name="query"
           autoComplete="off"
@@ -50,11 +50,11 @@ export const Searchbar = ({ onSubmit }) => {
           placeholder="Search images and photos"
           onChange={handleQueryChange}
         />
-      </SearchForm>
-    </Header>
+      </form>
+    </header>
   );
 };
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Searchbar.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };

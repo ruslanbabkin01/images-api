@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FaSearch } from 'react-icons/fa';
+
 
 export const Header = styled.header`
   top: 0;
@@ -49,11 +49,11 @@ export const BtnSubmit = styled.button`
   }
 `;
 
-export const ButtonIcon = styled(FaSearch)`
-  width: 20px;
-  height: 20px;
-  fill: #000;
-`;
+// export const ButtonIcon = styled(FaSearch)`
+//   width: 20px;
+//   height: 20px;
+//   fill: #000;
+// `;
 
 // export const BtnLabel = styled.span`
 //   position: absolute;

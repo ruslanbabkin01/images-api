@@ -9,7 +9,6 @@ import {
   Notification,
   Button,
 } from './index';
-import { Container } from './App.styled';
 import { fetchImages } from 'api/pixabayAPI';
 
 export const App = () => {
@@ -70,7 +69,7 @@ export const App = () => {
   }, [page, query]);
 
   return (
-    <Container>
+    <div className="container mx-auto 2xl grid grid-cols-1 gap-16 pb-6">
       <Searchbar onSubmit={handleFormSubmit} />
 
       <ImageGallery images={images} onModal={onModal} />
@@ -105,6 +104,6 @@ export const App = () => {
         </Modal>
       )}
       <ToastContainer />
-    </Container>
+    </div>
   );
 };

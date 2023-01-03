@@ -1,4 +1,4 @@
-import { ImageGalleryItem } from '../ImageGalleryItem';
+import { ImageGalleryItem } from './ImageGalleryItem';
 import { IImages } from 'types/props';
 
 interface IGalleryProps {
@@ -7,7 +7,7 @@ interface IGalleryProps {
 }
 
 export const ImageGallery: React.FC<IGalleryProps> = ({ images, onModal }) => (
-  <ul className="flex flex-wrap gap-4 basis-10 mx-auto my-auto mb-0 mt-0 p-0 list-none">
+  <ul className="grid gap-4 grid-cols-2 max-w-xs mx-auto my-0 p-0 list-none">
     {images.map(img => (
       <ImageGalleryItem
         key={img.id}

@@ -19,7 +19,7 @@ export const App: React.FC = () => {
   const [totalImages, setTotalImages] = useState(0);
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
-  const [largeImage, setLargeImage] = useState('');
+  // const [largeImage, setLargeImage] = useState('');
   const calcImages: number = totalImages - page * 12;
 
   const handleFormSubmit = (query: string) => {
@@ -30,11 +30,11 @@ export const App: React.FC = () => {
 
   const onLoadMore = () => setPage(prevPage => prevPage + 1);
 
-  const onModal = (largeImage: string) => setLargeImage(largeImage);
+  // const onModal = (largeImage: string) => setLargeImage(largeImage);
 
-  const onCloseModal = () => setLargeImage('');
+  // const onCloseModal = () => setLargeImage('');
 
-  useEffect(() => { 
+  useEffect(() => {
     if (!query) return;
 
     setStatus('pending');

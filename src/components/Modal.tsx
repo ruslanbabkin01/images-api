@@ -10,7 +10,7 @@ const modalRoot = document.querySelector('#modal-root') as HTMLElement;
 
 export const Modal = ({ onClose, children }: IModalProps) => {
   useEffect(() => {
-    const handleKeyDown = (e: React.KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
         onClose();
       }

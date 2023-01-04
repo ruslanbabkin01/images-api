@@ -3,15 +3,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-export const Searchbar = ({ onSubmit }) => {
+interface ISerchbarProps {
+  onSubmit: (query: string) => void;
+}
+
+export const Searchbar: React.FC<ISerchbarProps> = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
-  const handleQueryChange = event =>
+  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(event.currentTarget.value.toLowerCase());
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const normalizedQuery = query.trim();
+    const normalizedQuery: string = query.trim();
     if (normalizedQuery === '') {
       return toast.info('Insert correct request', {
         position: 'top-right',
@@ -28,7 +32,7 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <header className="sticky top-0 left-0 z-1000 flex justify-center items-center min-h-min px-6 py-3 text-white bg-sky-700 shadow-xl">
+    <header className="sticky top-0 left-0 z-50 flex justify-center items-center min-h-min px-6 py-3 bg-sky-700 shadow-xl">
       <form
         onSubmit={handleSubmit}
         className="flex items-center w-full bg-white rounded truncate max-w-lg"
@@ -54,7 +58,3 @@ export const Searchbar = ({ onSubmit }) => {
     </header>
   );
 };
-
-// Searchbar.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };

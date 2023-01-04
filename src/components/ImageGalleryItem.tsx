@@ -13,7 +13,7 @@ export const ImageGalleryItem: React.FC<IGalleryItem> = ({
   largeImage,
   onModal,
 }) => (
-  <li className="rounded-sm shadow-lg" key={id}>
+  <li className="shadow-md w-[(calc(100%-2rem))/4]" key={id}>
     <img
       className="w-full h-64 object-cover ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
       src={smallImage}

@@ -10,17 +10,19 @@ import {
   Button,
 } from './index';
 import { fetchImages } from 'api/pixabayAPI';
+import { IImages } from 'types/types';
+import { AxiosError } from 'axios';
 
-export const App = () => {
-  const [images, setImages] = useState([]);
+export const App: React.FC = () => {
+  const [images, setImages] = useState<IImages[]>([]);
   const [query, setQuery] = useState('');
   const [totalImages, setTotalImages] = useState(0);
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
   const [largeImage, setLargeImage] = useState('');
-  const calcImages = totalImages - page * 12;
+  const calcImages: number = totalImages - page * 12;
 
-  const handleFormSubmit = query => {
+  const handleFormSubmit = (query: string) => {
     setQuery(query);
     setPage(1);
     setImages([]);
@@ -28,15 +30,15 @@ export const App = () => {
 
   const onLoadMore = () => setPage(prevPage => prevPage + 1);
 
-  const onModal = largeImage => setLargeImage(largeImage);
+  const onModal = (largeImage: string) => setLargeImage(largeImage);
 
   const onCloseModal = () => setLargeImage('');
 
-  useEffect(() => {
+  useEffect(() => { 
     if (!query) return;
 
     setStatus('pending');
-    async function getImages(query, page) {
+    async function getImages(query: string, page: number) {
       try {
         const data = await fetchImages(query, page);
         setImages(prevImages => [...prevImages, ...data.hits]);
@@ -60,8 +62,9 @@ export const App = () => {
           setImages(data.hits);
           return;
         }
-      } catch (error) {
+      } catch (e: unknown) {
         setStatus('error');
+        const error = e as AxiosError;
         console.log(error.message);
       }
     }
@@ -69,7 +72,7 @@ export const App = () => {
   }, [page, query]);
 
   return (
-    <div className="container mx-auto 2xl grid grid-cols-1 gap-16 pb-6">
+    <div className="container mx-auto max-w-screen-lg flex flex-col gap-4">
       <Searchbar onSubmit={handleFormSubmit} />
 
       <ImageGallery images={images} onModal={onModal} />

@@ -1,5 +1,6 @@
+import { useModal } from 'context/useModalContext';
+
 interface IGalleryItem {
-  onModal: (image: string) => void;
   id?: string;
   tags: string;
   largeImage: string;
@@ -11,16 +12,17 @@ export const ImageGalleryItem: React.FC<IGalleryItem> = ({
   smallImage,
   tags,
   largeImage,
-  onModal,
-}) => (
-  <li className="shadow-md w-[(calc(100%-2rem))/4]" key={id}>
-    <img
-      className="w-full h-64 object-cover ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
-      src={smallImage}
-      alt={tags}
-      onClick={() => {
-        onModal(largeImage);
-      }}
-    />
-  </li>
-);
+}) => {
+  const { openModal } = useModal();
+
+  return (
+    <li className="shadow-md w-[(calc(100%-2rem))/4]" key={id}>
+      <img
+        className="w-full h-64 object-cover ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
+        src={smallImage}
+        alt={tags}
+        onClick={() => openModal(largeImage)}
+      />
+    </li>
+  );
+};

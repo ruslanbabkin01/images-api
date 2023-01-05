@@ -12,6 +12,7 @@ import {
 import { fetchImages } from 'api/pixabayAPI';
 import { IImages } from 'types/types';
 import { AxiosError } from 'axios';
+import { useModal } from 'context/useModalContext';
 
 export const App: React.FC = () => {
   const [images, setImages] = useState<IImages[]>([]);
@@ -19,8 +20,9 @@ export const App: React.FC = () => {
   const [totalImages, setTotalImages] = useState(0);
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
-  // const [largeImage, setLargeImage] = useState('');
   const calcImages: number = totalImages - page * 12;
+
+  const { largeImage, closeModal } = useModal();
 
   const handleFormSubmit = (query: string) => {
     setQuery(query);
@@ -29,10 +31,6 @@ export const App: React.FC = () => {
   };
 
   const onLoadMore = () => setPage(prevPage => prevPage + 1);
-
-  // const onModal = (largeImage: string) => setLargeImage(largeImage);
-
-  // const onCloseModal = () => setLargeImage('');
 
   useEffect(() => {
     if (!query) return;
@@ -75,7 +73,7 @@ export const App: React.FC = () => {
     <div className="container mx-auto max-w-screen-lg flex flex-col gap-4">
       <Searchbar onSubmit={handleFormSubmit} />
 
-      <ImageGallery images={images} onModal={onModal} />
+      <ImageGallery images={images} />
 
       {status === 'pending' && totalImages === 0 && <Loader />}
 
@@ -102,7 +100,7 @@ export const App: React.FC = () => {
       )}
 
       {largeImage && (
-        <Modal onClose={onCloseModal}>
+        <Modal onClose={closeModal}>
           <img src={largeImage} alt="IMG" />
         </Modal>
       )}

@@ -2,13 +2,13 @@ import ReactDOM from 'react-dom/client';
 import 'modern-normalize';
 import { App } from './components/App';
 import './index.css';
-import { ModalState } from 'context/ModalContext';
+import { ModalProvider } from 'context/useModalContext';
+import React from 'react';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <ModalState>
-    <App />
-  </ModalState>
+  <React.StrictMode>
+    <ModalProvider>
+      <App />
+    </ModalProvider>
+  </React.StrictMode>
 );
-
-//     <React.StrictMode>
-// </React.StrictMode>

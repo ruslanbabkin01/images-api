@@ -1,7 +1,6 @@
 export interface IImages {
-  id: number;
+  id?: number;
   webformatURL: string;
-  largeImageURL: string,
-  tags: string,
-  
+  largeImageURL: string;
+  tags: string;
 }

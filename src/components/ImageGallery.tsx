@@ -10,8 +10,8 @@ export const ImageGallery: React.FC<IGalleryProps> = ({ images }) => (
     {images.map(img => (
       <ImageGalleryItem
         key={img.id}
-        smallImage={img.webformatURL}
-        largeImage={img.largeImageURL}
+        webformatURL={img.webformatURL}
+        largeImageURL={img.largeImageURL}
         tags={img.tags}
       />
     ))}

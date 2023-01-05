@@ -1,17 +1,13 @@
 import { useModal } from 'context/useModalContext';
+import { IImages } from 'types/types';
 
-interface IGalleryItem {
-  id?: string;
-  tags: string;
-  largeImage: string;
-  smallImage: string;
-}
+interface IGalleryItem extends IImages {}
 
 export const ImageGalleryItem: React.FC<IGalleryItem> = ({
   id,
-  smallImage,
+  webformatURL,
   tags,
-  largeImage,
+  largeImageURL,
 }) => {
   const { openModal } = useModal();
 
@@ -19,9 +15,9 @@ export const ImageGalleryItem: React.FC<IGalleryItem> = ({
     <li className="shadow-md w-[(calc(100%-2rem))/4]" key={id}>
       <img
         className="w-full h-64 object-cover ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
-        src={smallImage}
+        src={webformatURL}
         alt={tags}
-        onClick={() => openModal(largeImage)}
+        onClick={() => openModal(largeImageURL)}
       />
     </li>
   );

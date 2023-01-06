@@ -39,7 +39,7 @@ export const Searchbar: React.FC<ISerchbarProps> = ({ onSubmit }) => {
       >
         <button
           type="submit"
-          className="inline-block w-12 h-12 border-0 opacity-60 cursor-pointer outline-0 ease-out duration-200 hover:opacity-100"
+          className=" flex justify-center items-center w-12 h-12 border-0 opacity-60 cursor-pointer outline-0 ease-out duration-200 hover:opacity-100"
         >
           <FaSearch className="w-5 h-5 fill-black" />
         </button>

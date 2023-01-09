@@ -12,9 +12,12 @@ export const ImageGalleryItem: React.FC<IGalleryItem> = ({
   const { openModal } = useModal();
 
   return (
-    <li className="shadow-md md:basis-1/5 m-1" key={id}>
+    <li
+      className="shadow-md md:basis-1/3 lg:basis-1/5 ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
+      key={id}
+    >
       <img
-        className="h-52 object-cover ease-in-out duration-300 hover:cursor-pointer hover:scale-105"
+        className="md:h-64 object-cover "
         src={webformatURL}
         alt={tags}
         onClick={() => openModal(largeImageURL)}

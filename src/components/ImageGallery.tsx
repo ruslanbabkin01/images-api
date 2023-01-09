@@ -6,7 +6,7 @@ interface IGalleryProps {
 }
 
 export const ImageGallery: React.FC<IGalleryProps> = ({ images }) => (
-  <ul className="md:flex md:flex-wrap justify-center md:gap-4 mx-auto">
+  <ul className="flex flex-col gap-3 md:flex-row md:flex-wrap justify-center md:gap-4 mx-auto px-3">
     {images.map(img => (
       <ImageGalleryItem
         key={img.id}

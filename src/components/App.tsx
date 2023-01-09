@@ -70,7 +70,7 @@ export const App: React.FC = () => {
   }, [page, query]);
 
   return (
-    <div className="container mx-auto max-w-screen-lg flex flex-col gap-4">
+    <div className="mx-auto flex flex-col gap-4">
       <Searchbar onSubmit={handleFormSubmit} />
 
       <ImageGallery images={images} />

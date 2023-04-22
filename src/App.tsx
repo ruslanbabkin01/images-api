@@ -8,7 +8,7 @@ import {
   Loader,
   Notification,
   Button,
-} from './index';
+} from './components/index';
 import { fetchImages } from 'api/pixabayAPI';
 import { IImages } from 'types/types';
 import { AxiosError } from 'axios';
@@ -64,6 +64,7 @@ export const App: React.FC = () => {
         setStatus('error');
         const error = e as AxiosError;
         console.log(error.message);
+        toast.error(error.message)
       }
     }
     getImages(query, page);
@@ -101,7 +102,7 @@ export const App: React.FC = () => {
 
       {largeImage && (
         <Modal onClose={closeModal}>
-          <img src={largeImage} alt="IMG" />
+          <img src={largeImage} alt="img" />
         </Modal>
       )}
       <ToastContainer />

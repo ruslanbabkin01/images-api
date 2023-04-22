@@ -8,6 +8,14 @@ interface IModalProps {
 
 const modalRoot = document.querySelector('#modal-root') as HTMLElement;
 
+function updateScrollLock() {
+  if (modalRoot.childElementCount > 0) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'auto';
+  }
+}
+
 export const Modal = ({ onClose, children }: IModalProps) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -17,8 +25,10 @@ export const Modal = ({ onClose, children }: IModalProps) => {
     };
 
     window.addEventListener('keydown', handleKeyDown);
+    updateScrollLock()
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      updateScrollLock()
     };
   }, [onClose]);
 

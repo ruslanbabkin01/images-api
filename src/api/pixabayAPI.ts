@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { IImages, IServerResponse } from 'types/types';
 
-// const API_KEY = process.env.REACT_APP_API_KEY;
-const API_KEY = '29966506-3ac2aa6cf44b4238878b6f625';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 axios.defaults.baseURL = `https://pixabay.com/api/`;
 

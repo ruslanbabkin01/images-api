@@ -8,7 +8,7 @@ import {
   Loader,
   Notification,
   Button,
-} from './components/index';
+} from './components/index.js';
 import { fetchImages } from 'api/pixabayAPI';
 import { IImages } from 'types/types';
 import { AxiosError } from 'axios';

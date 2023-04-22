@@ -1,5 +1,6 @@
-import { ImageGalleryItem } from './ImageGalleryItem';
 import { IImages } from 'types/types';
+import { ImageGalleryItem } from './ImageGalleryItem';
+
 
 interface IGalleryProps {
   images: IImages[];

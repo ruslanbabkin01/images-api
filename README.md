@@ -23,7 +23,7 @@ Check out the live version here: [IMAGES API](https://ruslanbabkin01.github.io/i
 
 Clone the repository to your local machine:
 ```bash
-git clone <https://github.com/ruslanbabkin01/images-api.git>
+git clone https://github.com/ruslanbabkin01/images-api.git
 ```
 Install the project dependencies:
 ```bash

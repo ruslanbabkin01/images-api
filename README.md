@@ -35,6 +35,6 @@ npm start
 ```
 Create a file .env and add variables as assigned in the file .env.example (personal API key)
 
-Now, open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Now, open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ---
